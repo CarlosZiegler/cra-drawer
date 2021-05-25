@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import {
+  Redirect,
+  Route,
+  Switch,
+  BrowserRouter as Router,
+} from 'react-router-dom';
+import Routes from './routes';
 
-function App() {
+import { Header } from '@components';
+import { LoginPage, HomePage, NotFoundPage } from '@pages';
+import { GlobalStyle, theme } from '@theme';
+
+export default function App() {
+  const isLoggedIn = true;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        {!isLoggedIn && (
+          <Switch>
+            <Route path={Routes.auth.Login} component={LoginPage} />
+            <Redirect to={Routes.auth.Login} />
+          </Switch>
+        )}
+        {isLoggedIn && (
+          <>
+            <Header />
+            <Switch>
+              <Route path={Routes.Home} exact component={HomePage} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </>
+        )}
+      </ThemeProvider>
+    </Router>
   );
 }
-
-export default App;
