@@ -7,9 +7,9 @@ import {
 } from 'react-router-dom';
 import Routes from './routes';
 
-import { Header } from '@components';
-import { LoginPage, HomePage, NotFoundPage } from '@pages';
-import { GlobalStyle, theme } from '@theme';
+import { Header } from './components';
+import { LoginPage, HomePage, NotFoundPage } from './pages';
+import { GlobalStyle, theme } from './theme';
 
 export default function App() {
   const isLoggedIn = true;
