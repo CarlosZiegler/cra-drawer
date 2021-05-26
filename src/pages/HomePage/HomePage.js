@@ -3,6 +3,7 @@ import * as S from './styles';
 import { CompanyContext } from '../../context';
 import { useContext } from 'react';
 import { Skeleton } from 'antd';
+import Description from './components/Description';
 
 export default function HomePage() {
   const { company } = useContext(CompanyContext);
@@ -15,9 +16,17 @@ export default function HomePage() {
     }, 1000);
   }, [company]);
 
+  if (isLoading) {
+    <PageWrapper>
+      <Skeleton active paragraph={{ rows: 8 }} />
+    </PageWrapper>;
+  }
+
   return (
-    <S.Container>
-      {isLoading ? <Skeleton active paragraph={{ rows: 8 }} /> : company?.name}
-    </S.Container>
+    <PageWrapper>{company && <Description company={company} />}</PageWrapper>
   );
+}
+
+function PageWrapper({ children }) {
+  return <S.Container>{children}</S.Container>;
 }
