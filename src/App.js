@@ -2,25 +2,36 @@ import { ThemeProvider } from 'styled-components';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Routes from './routes';
 
-import { Header } from './components';
+import { Sidebar } from './components';
 import { HomePage, NotFoundPage } from './pages';
 import { GlobalStyle, theme } from './theme';
+import { Layout } from 'antd';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryClient = new QueryClient();
 
 export default function App() {
+  const { Content, Footer } = Layout;
   return (
     <Router>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <QueryClientProvider client={queryClient}>
-          <Header />
-          <Switch>
-            <Route path={Routes.Home} exact component={HomePage} />
-            <Route component={NotFoundPage} />
-          </Switch>
+          <Layout>
+            <Sidebar />
+            <Layout>
+              <Content>
+                <Switch>
+                  <Route path={Routes.Home} exact component={HomePage} />
+                  <Route component={NotFoundPage} />
+                </Switch>
+              </Content>
+              <Footer style={{ textAlign: 'center' }}>
+                Ant Design ©2018 Created by Ant UED
+              </Footer>
+            </Layout>
+          </Layout>
         </QueryClientProvider>
       </ThemeProvider>
     </Router>

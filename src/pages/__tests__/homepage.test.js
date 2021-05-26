@@ -3,6 +3,6 @@ import HomePage from '../HomePage/HomePage';
 
 test('renders learn react link', () => {
   render(<HomePage />);
-  const homeTitle = screen.getByText(/HomePage/i);
+  const homeTitle = screen.getByText(/Sidebar/i);
   expect(homeTitle).toBeInTheDocument();
 });
