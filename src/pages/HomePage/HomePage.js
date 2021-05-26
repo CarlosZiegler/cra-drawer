@@ -17,9 +17,11 @@ export default function HomePage() {
   }, [company]);
 
   if (isLoading) {
-    <PageWrapper>
-      <Skeleton active paragraph={{ rows: 8 }} />
-    </PageWrapper>;
+    return (
+      <PageWrapper>
+        <Skeleton active paragraph={{ rows: 8 }} />
+      </PageWrapper>
+    );
   }
 
   return (
