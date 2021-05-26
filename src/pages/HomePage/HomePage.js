@@ -1,7 +1,9 @@
 import React from 'react';
 import * as S from './styles';
-import Sidebar from '../../components/Sidebar';
+import { CompanyContext } from '../../context';
+import { useContext } from 'react';
 
 export default function HomePage() {
-  return <S.Container>Sidebar</S.Container>;
+  const { company } = useContext(CompanyContext);
+  return <S.Container>{company?.name}</S.Container>;
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const axiosApi = axios.create({
-  baseURL: 'http://localhost:8000',
+const api = axios.create({
+  baseURL: 'https://fakerapi.it/api/v1/',
 });
 
-export default axiosApi;
+export default api;
