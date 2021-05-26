@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Layout, Menu } from 'antd';
-import { TeamOutlined, UserOutlined } from '@ant-design/icons';
-import { useUsers } from '../hooks';
+import { TeamOutlined } from '@ant-design/icons';
+import { useCompanies } from '../hooks';
 
 export default function SideBar() {
   const [collapsed, setCollapsed] = useState(false);
 
-  const { status, data, error, isLoading } = useUsers();
+  const { data, error, isLoading } = useCompanies();
 
   const { Sider } = Layout;
   const { SubMenu } = Menu;
@@ -18,21 +18,27 @@ export default function SideBar() {
   if (error) return 'An error has occurred: ' + error.message;
 
   return (
-    <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+    <Sider
+      collapsible
+      collapsed={collapsed}
+      onCollapse={onCollapse}
+      width={'max-content'}
+    >
       <div className="logo" style={{ padding: 30 }} />
-      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-        <SubMenu key="sub1" icon={<UserOutlined />} title="Users">
-          {data.map((user) => (
-            <Menu.Item
-              key={user.id}
-            >{`${user.firstname} ${user.lastname}`}</Menu.Item>
-          ))}
-        </SubMenu>
-        <SubMenu key="sub2" icon={<TeamOutlined />} title="Companies">
-          <Menu.Item key="6">Company 1</Menu.Item>
-          <Menu.Item key="8">Company 2</Menu.Item>
-        </SubMenu>
-      </Menu>
+      {data && (
+        <Menu
+          theme="dark"
+          defaultSelectedKeys={['1']}
+          mode="inline"
+          width={'100%'}
+        >
+          <SubMenu key="sub2" icon={<TeamOutlined />} title="Companies">
+            {data.map((company) => (
+              <Menu.Item key={company.name}>{company.name}</Menu.Item>
+            ))}
+          </SubMenu>
+        </Menu>
+      )}
     </Sider>
   );
 }
