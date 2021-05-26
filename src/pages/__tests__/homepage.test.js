@@ -5,8 +5,8 @@ import { CompanyBuilder } from '../../tests';
 
 describe(HomePage, () => {
   it('Show Company from context', async () => {
-    const { getByText } = await renderPage();
-    const homeTitle = getByText(mockCompany.name);
+    const { findByText } = await renderPage();
+    const homeTitle = await findByText(mockCompany.name);
     expect(homeTitle).toBeInTheDocument();
   });
 });
