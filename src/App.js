@@ -11,10 +11,12 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 
 const queryClient = new QueryClient({
   defaultOptions: {
-    refetchOnWindowFocus: false,
-    refetchOnMount: false,
-    refetchOnReconnect: false,
-    cacheTime: 0,
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      cacheTime: 0,
+    },
   },
 });
 
@@ -35,7 +37,7 @@ export default function App() {
                 </Switch>
               </Content>
               <Footer style={{ textAlign: 'center' }}>
-                Ant Design ©2018 Created by Ant UED
+                Carlos Ziegler ©2021 Created with Ant UED
               </Footer>
             </Layout>
           </Layout>
