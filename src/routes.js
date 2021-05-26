@@ -1,5 +1,5 @@
 const Routes = {
-  Home: '/home',
+  Home: '/',
   Auth: {
     Login: '/auth/login',
   },
