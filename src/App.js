@@ -9,7 +9,11 @@ import { Layout } from 'antd';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    refetchOnWindowFocus: false,
+  },
+});
 
 export default function App() {
   const { Content, Footer } = Layout;
