@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import HomePage from '../HomePage/HomePage';
-import MockContext from '../../tests/MockContext';
-import { CompanyBuilder } from '../../tests';
+import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import HomePage from '../HomePage/HomePage';
+import { CompanyBuilder, MockContext } from '../../tests';
 
 describe(HomePage, () => {
   it('Show Company from context', async () => {

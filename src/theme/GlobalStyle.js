@@ -31,4 +31,21 @@ code {
 input {
 	filter: none;
   }
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
 `;

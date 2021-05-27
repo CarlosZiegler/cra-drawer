@@ -1,7 +1,7 @@
+import styled from 'styled-components';
 import { Form, Col, Row } from 'antd';
 import { useFormContext } from 'react-hook-form';
 import { Input } from '../../../../components';
-import styled from 'styled-components';
 
 export default function EditForm() {
   const { register, formState } = useFormContext();

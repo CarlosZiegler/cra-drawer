@@ -1,13 +1,13 @@
-import React from 'react';
-import * as S from './styles';
 import { Result, Button } from 'antd';
 import { useHistory } from 'react-router-dom';
+import { ContentContainer } from '../../components';
 
 export default function NotFoundPage() {
   const history = useHistory();
   const handleOnclick = () => history.push('/');
+
   return (
-    <S.Container>
+    <ContentContainer>
       <Result
         status="404"
         title="404"
@@ -18,6 +18,6 @@ export default function NotFoundPage() {
           </Button>
         }
       />
-    </S.Container>
+    </ContentContainer>
   );
 }

@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import * as S from './styles';
+import { Button, Skeleton } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+import React, { useEffect, useState, useContext } from 'react';
 import { CompanyContext } from '../../context';
-import { useContext } from 'react';
-import { Skeleton } from 'antd';
+import { ContentContainer } from '../../components';
 import Description from './components/Description';
 import CompanyHeader from './components/CompanyHeader';
-import { Button } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
 import Drawer from './components/Drawer';
 
 export default function HomePage() {
@@ -25,14 +23,14 @@ export default function HomePage() {
 
   if (isLoading) {
     return (
-      <PageWrapper>
-        <Skeleton active paragraph={{ rows: 8 }} />
-      </PageWrapper>
+      <ContentContainer>
+        <Skeleton active paragraph={{ rows: 3 }} />
+      </ContentContainer>
     );
   }
 
   return (
-    <PageWrapper>
+    <ContentContainer>
       {company && (
         <>
           <Drawer
@@ -47,10 +45,6 @@ export default function HomePage() {
           </Button>
         </>
       )}
-    </PageWrapper>
+    </ContentContainer>
   );
-}
-
-function PageWrapper({ children }) {
-  return <S.Container>{children}</S.Container>;
 }
