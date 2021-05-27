@@ -4,10 +4,17 @@ import { CompanyContext } from '../../context';
 import { useContext } from 'react';
 import { Skeleton } from 'antd';
 import Description from './components/Description';
+import CompanyHeader from './components/CompanyHeader';
+import { Button } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+import { Drawer } from '../../components';
 
 export default function HomePage() {
   const { company } = useContext(CompanyContext);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDrawerVisible, setIsDrawerVisible] = useState(false);
+  const showDrawer = () => setIsDrawerVisible(true);
+  const onCloseDrawer = () => setIsDrawerVisible(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -25,7 +32,18 @@ export default function HomePage() {
   }
 
   return (
-    <PageWrapper>{company && <Description company={company} />}</PageWrapper>
+    <PageWrapper>
+      {company && (
+        <>
+          <Drawer visible={isDrawerVisible} onClose={onCloseDrawer} />
+          <CompanyHeader imageUrl={company.imageUrl} />
+          <Description company={company} />
+          <Button type="primary" onClick={showDrawer}>
+            <PlusOutlined /> Edit Company
+          </Button>
+        </>
+      )}
+    </PageWrapper>
   );
 }
 
