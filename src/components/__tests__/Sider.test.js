@@ -1,8 +1,7 @@
 import { render } from '@testing-library/react';
-import Sider from '../Sidebar/Sider';
-import MockContext from '../../tests/MockContext';
 import userEvent from '@testing-library/user-event';
-import { CompanyBuilder } from '../../tests';
+import Sider from '../Sidebar/components/Sider';
+import { CompanyBuilder, MockContext } from '../../tests';
 
 describe(Sider, () => {
   it('Show Sidebar Options', async () => {

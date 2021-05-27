@@ -1,7 +1,7 @@
+import styled from 'styled-components';
 import { Form, Col, Row } from 'antd';
 import { useFormContext } from 'react-hook-form';
 import { Input } from '../../../../components';
-import styled from 'styled-components';
 
 export default function EditForm() {
   const { register, formState } = useFormContext();
@@ -15,6 +15,7 @@ export default function EditForm() {
               <Input
                 {...register('name')}
                 placeholder="Please enter user name"
+                data-testid={'name'}
               />
               {errors.name && (
                 <ErrorMessage>{errors.name.message}</ErrorMessage>
@@ -28,6 +29,7 @@ export default function EditForm() {
               <Input
                 {...register('imageUrl')}
                 placeholder="Please enter url image here"
+                data-testid={'imageUrl'}
               />
               {errors.imageUrl && (
                 <ErrorMessage>{errors.imageUrl.message}</ErrorMessage>
@@ -43,6 +45,7 @@ export default function EditForm() {
               <Input
                 placeholder="Please enter url image here"
                 {...register('email')}
+                data-testid={'email'}
               />
               {errors.email && (
                 <ErrorMessage>{errors.email.message}</ErrorMessage>
@@ -56,6 +59,7 @@ export default function EditForm() {
               <Input
                 placeholder="Please enter url image here"
                 {...register('phone')}
+                data-testid={'phone'}
               />
               {errors.phone && (
                 <ErrorMessage>{errors.phone.message}</ErrorMessage>
@@ -71,6 +75,7 @@ export default function EditForm() {
               <Input
                 placeholder="Please enter url image here"
                 {...register('country')}
+                data-testid={'country'}
               />
               {errors.country && (
                 <ErrorMessage>{errors.country.message}</ErrorMessage>

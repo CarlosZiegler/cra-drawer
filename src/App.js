@@ -3,7 +3,7 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Routes from './routes';
 import React, { useState } from 'react';
 import { Sidebar } from './components';
-import { HomePage, NotFoundPage } from './pages';
+import { HomePage, NotFoundPage, RootPage } from './pages';
 import { GlobalStyle, theme } from './theme';
 import { Layout } from 'antd';
 import { CompanyContext } from './context';
@@ -31,13 +31,18 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <QueryClientProvider client={queryClient}>
           <CompanyContext.Provider value={{ company, setCompany }}>
-            <Layout>
+            <Layout style={LayoutStyle}>
               <Sidebar />
-              <Layout>
+              <Layout style={LayoutStyle}>
                 <Content>
                   <Switch>
                     <Route
                       path={Routes.Home}
+                      exact
+                      component={() => <RootPage />}
+                    />
+                    <Route
+                      path={Routes.Company}
                       exact
                       component={() => <HomePage />}
                     />
@@ -55,3 +60,7 @@ export default function App() {
     </Router>
   );
 }
+
+const LayoutStyle = {
+  background: '#fff',
+};

@@ -1,10 +1,11 @@
 import { Router } from 'react-router-dom';
 import { useState } from 'react';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyle, theme } from '../theme';
-import { createMemoryHistory } from 'history';
-import { CompanyContext } from '../context';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ThemeProvider } from 'styled-components';
+import { createMemoryHistory } from 'history';
+import { GlobalStyle, theme } from '../theme';
+import { CompanyContext } from '../context';
+
 const queryClient = new QueryClient({
   defaultOptions: {
     refetchOnWindowFocus: false,

@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+## Technologies Used
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- React-query for fetch data
+- React Hook Form for manage form state
+- Jest and React Library Testing for tests
+- Antd for design system
+- Styled Components for extend styles
+- Yup for data Validation
+- Github Actions for Automate tests
+- Git flow for manage Branches (Main - Develop - Feature Branches - Hotfix)
+- Deploy on Vercel
+- FakeAPI for fetch fake data
 
-## Available Scripts
+### Path structure
 
-In the project directory, you can run:
+- assets : to share images
+- components : to share common Components
+- context : to use in useContext hook to share data in SPA
+- hooks : to share hooks
+- infra : to share axios api
+- models : to share class for company, to normalize and manipulate Company Object
+- pages : to share pages
+- service : to share services that call extern apis
+- tests : to share mock context, mock helpers , Data builders to help in tests.
+- theme : to share theme
 
-### `yarn start`
+### Comments
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+First step I tried do more tests but I have a issue if I using React-Query, that I need more time to solve tests config and mocks. Alternative is using tool like MSW (Mock Service Work) intercepting requests on the network level.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Create concept of this APP is hard without a Design. I think is better if I can create some design from Figma and then implement it BUT this take more time.
 
-### `yarn test`
+In first moment I will try to implement something with Gatsby and GraphQL, I read the Documentation but I think if I would go fast, that is no good Idee to implement it with a stack that I have less contact.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Design could be better, but I think its take more time. Like responsiveness.
 
-### `yarn build`
+I tried to separate app in layers and responsabilities, This can certainly be improved.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Some components can be more adaptable and reused, using composition. (TIME)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Maybe use env variables, for example to hide url of api.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Adjusting tests maybe we can add more tests. (TIME)
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Maybe add storybook to document our components. (TIME)
