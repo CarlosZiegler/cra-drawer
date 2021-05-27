@@ -4,10 +4,10 @@ export class Company {
     this.name = data.name;
     this.phone = data.phone;
     this.country = data.country;
-    this.imageUrl = data.image;
+    this.imageUrl = data.imageUrl;
     Object.freeze(this);
   }
   static fromJson(data) {
-    return new Company(data);
+    return new Company({ ...data, imageUrl: data.image });
   }
 }

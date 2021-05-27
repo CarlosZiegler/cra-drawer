@@ -7,7 +7,7 @@ import Description from './components/Description';
 import CompanyHeader from './components/CompanyHeader';
 import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { Drawer } from '../../components';
+import Drawer from './components/Drawer';
 
 export default function HomePage() {
   const { company } = useContext(CompanyContext);
@@ -21,7 +21,7 @@ export default function HomePage() {
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
-  }, [company]);
+  }, []);
 
   if (isLoading) {
     return (
@@ -35,7 +35,11 @@ export default function HomePage() {
     <PageWrapper>
       {company && (
         <>
-          <Drawer visible={isDrawerVisible} onClose={onCloseDrawer} />
+          <Drawer
+            visible={isDrawerVisible}
+            onClose={onCloseDrawer}
+            company={company}
+          />
           <CompanyHeader imageUrl={company.imageUrl} />
           <Description company={company} />
           <Button type="primary" onClick={showDrawer}>
