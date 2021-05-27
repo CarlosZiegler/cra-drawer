@@ -15,7 +15,7 @@ describe(HomePage, () => {
     const editBtn = await findByText(/edit company/i);
     userEvent.click(editBtn);
 
-    expect(await findByText(/create a new account/i)).toBeInTheDocument();
+    expect(await findByText(/Edit Company/i)).toBeInTheDocument();
   });
 });
 
