@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import HomePage from '../HomePage/HomePage';
 import MockContext from '../../tests/MockContext';
 import { CompanyBuilder } from '../../tests';
@@ -11,11 +11,28 @@ describe(HomePage, () => {
     expect(homeTitle).toBeInTheDocument();
   });
   it('Show drawer if clicked in edit button', async () => {
-    const { findByText } = await renderPage();
+    const { findByText, getByTitle } = await renderPage();
     const editBtn = await findByText(/edit company/i);
     userEvent.click(editBtn);
 
-    expect(await findByText(/Edit Company/i)).toBeInTheDocument();
+    expect(await findByText(/Edit Customer/i)).toBeInTheDocument();
+
+    expect(getByTitle(/Name/i)).toBeInTheDocument();
+    expect(getByTitle(/Image Url/i)).toBeInTheDocument();
+    expect(getByTitle(/Phone/i)).toBeInTheDocument();
+    expect(getByTitle(/Country/i)).toBeInTheDocument();
+  });
+  it('Show drawer form filled with company data', async () => {
+    const { findByText, getByTestId } = await renderPage();
+    const editBtn = await findByText(/edit company/i);
+    userEvent.click(editBtn);
+
+    expect(await findByText(/Edit Customer/i)).toBeInTheDocument();
+
+    expect(getByTestId(/name/i).value).toBe(mockCompany.name);
+    expect(getByTestId(/imageUrl/i).value).toBe(mockCompany.imageUrl);
+    expect(getByTestId(/phone/i).value).toBe(mockCompany.phone);
+    expect(getByTestId(/country/i).value).toBe(mockCompany.country);
   });
 });
 

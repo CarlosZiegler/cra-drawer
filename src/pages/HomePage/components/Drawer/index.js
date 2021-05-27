@@ -24,8 +24,9 @@ export default function DrawerForm({ visible, onClose, company }) {
   });
   const { handleSubmit, formState } = methods;
   const { setCompany } = useContext(CompanyContext);
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const updatedCompany = new Company({ ...company, ...data });
+
     setCompany(updatedCompany);
   };
 
