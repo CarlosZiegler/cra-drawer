@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import HomePage from '../HomePage/HomePage';
 import MockContext from '../../tests/MockContext';
 import { CompanyBuilder } from '../../tests';
