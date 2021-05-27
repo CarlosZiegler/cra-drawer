@@ -1,5 +1,6 @@
 import { Layout } from 'antd';
 import SideMenu from './SideMenu';
+import Alert from '../../components/Alert';
 
 export default function Side({
   data,
@@ -12,9 +13,7 @@ export default function Side({
 
   const onCollapse = (collapsed) => setCollapsed(collapsed);
 
-  if (isLoading) return 'Loading...';
-
-  if (error) return 'An error has occurred: ' + error.message;
+  if (error) return <Alert message={error.message} />;
 
   return (
     <Sider
