@@ -18,9 +18,13 @@ export default function Side({ data, error, collapsed, setCollapsed }) {
       collapsed={collapsed}
       onCollapse={onCollapse}
       width={'max-content'}
+      breakpoint="lg"
     >
-      <div className="logo" style={{ padding: 30, color: '#fff' }}>
-        <StyledLink to={Router.Home}>Drawer-APP</StyledLink>
+      <div
+        className="logo"
+        style={{ padding: 30, color: '#fff', alignSelf: 'center' }}
+      >
+        <StyledLink to={Router.Home}>APP</StyledLink>
       </div>
 
       {data && <SideMenu companies={data} />}
@@ -29,5 +33,11 @@ export default function Side({ data, error, collapsed, setCollapsed }) {
 }
 
 export const StyledLink = styled(Link)`
-  font-size: 1.5rem;
+  font-size: 1rem;
+  overflow: 'auto';
+  max-height: '100vh';
+  position: 'fixed';
+  left: 0;
+  z-index: 99;
+  text-align: center;
 `;
