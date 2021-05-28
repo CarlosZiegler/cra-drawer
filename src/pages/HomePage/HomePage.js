@@ -24,6 +24,10 @@ export default function HomePage() {
   if (isLoading) {
     return (
       <ContentContainer>
+        <Skeleton.Image
+          active
+          style={{ width: '300px', height: '300px', marginBottom: '50px' }}
+        />
         <Skeleton active paragraph={{ rows: 3 }} />
       </ContentContainer>
     );

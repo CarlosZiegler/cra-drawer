@@ -33,7 +33,7 @@ export default function App() {
           <CompanyContext.Provider value={{ company, setCompany }}>
             <Layout style={LayoutStyle}>
               <Sidebar />
-              <Layout style={LayoutStyle}>
+              <Layout style={{ ...LayoutStyle, width: 'max-content' }}>
                 <Content>
                   <Switch>
                     <Route
@@ -63,4 +63,5 @@ export default function App() {
 
 const LayoutStyle = {
   background: '#fff',
+  height: '100%',
 };

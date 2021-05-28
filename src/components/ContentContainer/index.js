@@ -11,7 +11,7 @@ export const Container = styled.main`
   align-items: center;
   padding: 1rem;
   max-width: 95%;
-  width: 95%;
   height: 100vh;
   margin: 0 auto;
+  width: 50%;
 `;
