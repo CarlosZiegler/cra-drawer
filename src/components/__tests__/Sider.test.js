@@ -23,7 +23,7 @@ describe(Sider, () => {
 async function renderPage() {
   const renderResult = render(
     <MockContext>
-      <Sider data={mockCompanies} />
+      <Sider data={mockCompanies} setCollapsed={()=>{}}/>
     </MockContext>
   );
   return renderResult;
